@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Meet the Ishist</title>
+  <style>
+    body {
+      background-color: #fff;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.5em;
+      padding: 1em;
+      color: #000;
+    }
+
+    #typewriter {
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div id="typewriter"></div>
+
+  <script>
+    const text = "I tried to talk to the Ishist.         \nBut he was debating with his clone.";
+    const typewriter = document.getElementById('typewriter');
+    let i = 0;
+
+    function delay(min, max) {
+      return Math.floor((Math.random() ** 20) * (max - min + 1)) + min;
+    }
+
+    function type() {
+      if (i < text.length) {
+        typewriter.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, delay(20, 1200)); // typing speed in ms
+      }
+    }
+
+    window.onload = type;
+  </script>
+</body>
+</html>
